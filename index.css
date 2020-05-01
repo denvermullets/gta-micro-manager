@@ -1,5 +1,5 @@
 .progressCokeSupply {
-    width: 300px;
+    width: 500px;
 }
 .progressCokeSupply header span {
     color: #666;
@@ -59,7 +59,7 @@
 }
 
 .progressCokeProduct {
-    width: 300px;
+    width: 500px;
 }
 .progressCokeProduct header span {
     color: #666;
@@ -74,7 +74,7 @@
     color: white;
     background-color: #33D7FF;
     height: 30px;
-    /* width: 70%; */
+    width: 0%;
 }
 .progressCokeProduct .bar .ref {
     position: absolute;
