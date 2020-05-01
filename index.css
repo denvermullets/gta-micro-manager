@@ -1,0 +1,120 @@
+.progressCokeSupply {
+    width: 300px;
+}
+.progressCokeSupply header span {
+    color: #666;
+    float: right;
+}
+.progressCokeSupply .bar {
+    position: relative;
+    background-color: #ccc;
+    height: 30px;
+}
+.progressCokeSupply .bar .percent {
+    color: white;
+    background-color: #0c0;
+    height: 30px;
+    /* width: 70%; */
+}
+.progressCokeSupply .bar .ref {
+    position: absolute;
+    left: 80%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressCokeSupply .bar .ref:before {
+    content: attr(data-ref);
+    position: absolute;
+    width: 100px;
+    left: -50px;
+    top: 100%;
+    color: #888;
+    text-align: center;
+}
+.progressCokeSupply .bar .ref2 {
+    position: absolute;
+    left: 60%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressCokeSupply .bar .ref3 {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressCokeSupply .bar .ref4 {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+
+.progressCokeProduct {
+    width: 300px;
+}
+.progressCokeProduct header span {
+    color: #666;
+    float: right;
+}
+.progressCokeProduct .bar {
+    position: relative;
+    background-color: #ccc;
+    height: 30px;
+}
+.progressCokeProduct .bar .percent {
+    color: white;
+    background-color: #0c0;
+    height: 30px;
+    /* width: 70%; */
+}
+.progressCokeProduct .bar .ref {
+    position: absolute;
+    left: 80%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressCokeProduct .bar .ref:before {
+    content: attr(data-ref);
+    position: absolute;
+    width: 100px;
+    left: -50px;
+    top: 100%;
+    color: #888;
+    text-align: center;
+}
+.progressCokeProduct .bar .ref2 {
+    position: absolute;
+    left: 60%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressCokeProduct .bar .ref3 {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressCokeProduct .bar .ref4 {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+
