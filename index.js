@@ -11,37 +11,27 @@
 // adding bars to progress element : https://stackoverflow.com/questions/31991092/progress-bar-with-reference-line-using-css-and-html
 // custom styling progress element: https://stackoverflow.com/questions/42290719/custom-styling-progress-bar-in-css // https://css-tricks.com/html5-progress-element/
 // progress element countdown: https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
+const startBtn = document.querySelector('#start')
+
+let cocaineSupplyTimeLeft = 100
 
 document.addEventListener('DOMContentLoaded', function(event){
 
 })
 
-let startBtn = document.querySelector('#start')
-
 startBtn.addEventListener('click', function(event){
-    
-    let timeLeft = 100
-
-    const cocaineSupply = setInterval(function() {
-      if (timeLeft <= 0){
-        clearInterval(cocaineSupply)
-      }
-    //   document.getElementById("cokeSupplyProgress").value = timeLeft
       
-    // document.getElementById("progressCokeSupply").value = timeLeft
-        document.querySelector('.percent').style.width = timeLeft + '%'
-        console.log(timeLeft)
-    // elem.style.width = width + '%'
-
-    //   document.getElementById("progressBar").value = 25 - timeLeft;
-        timeLeft -= 1
-    }, 1000)
-
+  const cocaineSupply = setInterval(cocaineSupplyTimer, 1000)
+  
 })
 
-function cocaineMath() {
 
-
-
+function cocaineSupplyTimer() {
+  
+  if (cocaineSupplyTimeLeft <= 0) {
+    clearInterval(cocaineSupply)
+  }
+    document.querySelector('.cokeProductPercent').style.width = cocaineSupplyTimeLeft + '%'
+    console.log(cocaineSupplyTimeLeft)
+    cocaineSupplyTimeLeft -= 1
 }
-

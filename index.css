@@ -10,7 +10,7 @@
     background-color: #ccc;
     height: 30px;
 }
-.progressCokeSupply .bar .percent {
+.progressCokeSupply .bar .cokeSupplyPercent {
     color: white;
     background-color: #0c0;
     height: 30px;
@@ -70,9 +70,9 @@
     background-color: #ccc;
     height: 30px;
 }
-.progressCokeProduct .bar .percent {
+.progressCokeProduct .bar .cokeProductPercent {
     color: white;
-    background-color: #0c0;
+    background-color: #33D7FF;
     height: 30px;
     /* width: 70%; */
 }
@@ -84,7 +84,15 @@
     height: 100%;
     background-color: white;
 }
-.progressCokeProduct .bar .ref:before {
+.progressCokeProduct .bar .solo {
+    position: absolute;
+    left: 30%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressCokeProduct .bar .solo:before {
     content: attr(data-ref);
     position: absolute;
     width: 100px;
