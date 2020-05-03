@@ -1,17 +1,3 @@
-// 5 bars with 20 tics each of supplies.
-// 1 tic of supplies are used every 1:12 (1.2mins) fully upgraded.
-// So 1 box of Coke takes 30 minutes to make and consumes 25 tics. ~1.25 bars.
-// Every tic costs $750 in supplies (when bought). 1 Bar is worth $15K in stock.
-// It takes 300 minutes (5 hours) to produce full 10 stock.
-// In those 300 minutes 250 tics of supplies will be used. 250 tics with 20 tics per bar mean that it will take 12.5 bars to fully produce $420K worth of coke.
-// Without calculating business utility charges, that should mean that $420K worth of coke cost $187.5K of bought supplies. ($0 if stolen just time then.)
-// So net profit with buying supplies is $232.5K every 5 hours.
-
-// 1:30 mins to produce
-// 1:12 mins to consume
-
-// 60000 - 1 minute
-
 const startBtn = document.querySelector('#start')
 const resupplyCokeBtn = document.querySelector('#resupplyCocaine')
 
@@ -24,12 +10,28 @@ const currency = new Intl.NumberFormat('en-US', {
 // init timer variables
 let cocaineSupply
 let cocaineProduct
-// init supply percentages / value
+let weedSupply
+let weedProduct
+let moneySupply
+let moneyProduct
+// coke init supply percentages / value
 let cocaineSupplyTimeLeft = 100
 let cocaineSupplyCost = 0
 let cocaineProductProduced = 0
 let cocaineProductValue = 0
 let cocainePercentage = 0
+// weed init supply percentages / value
+let weedSupplyTimeLeft = 100
+let weedSupplyCost = 0
+let weedProductProduced = 0
+let weedProductValue = 0
+let weedPercentage = 0
+// money init supply percentages / value
+let moneySupplyTimeLeft = 100
+let moneySupplyCost = 0
+let moneyProductProduced = 0
+let moneyProductValue = 0
+let moneyPercentage = 0
 
 document.addEventListener('DOMContentLoaded', function(event){
 
@@ -55,12 +57,23 @@ function startAllTimers() {
   console.log("timers started")
   cocaineSupply = setInterval(cocaineSupplyTimer, 72000)  // 1:12 M:s 72000
   cocaineProduct = setInterval(cocaineProductTimer, 60000) // 1:30 M:s -- 90000 // 15m = 900000ms  // 8.4mins makes 1 box -- 504000ms // - 60000 = 1min
+  weedSupply = setInterval(weedSupplyTimer, 120000)  // 2:00 M:s 120000
+  weedProduct = setInterval(weedProductTimer, 240000) // 4:00 M:s 240000
+  moneySupply = setInterval(moneySupplyTimer, 96000)  // 1:36 M:s 96000
+  moneyProduct = setInterval(moneyProductTimer, 480000) // 8:00 M:s 480000
+
 }
 
 function stopAllCokeTimers() {
-  console.log('timers stopped')
+  console.log('coke timers stopped')
   clearInterval(cocaineSupply)
   clearInterval(cocaineProduct)
+}
+
+function stopAllCokeTimers() {
+  console.log('weed timers stopped')
+  clearInterval(weedSupply)
+  clearInterval(weedProduct)
 }
 
 function cocaineSupplyTimer() {
@@ -104,3 +117,52 @@ function cocaineProductTimer() {
     document.querySelector('#cocaineValue').innerText = `Sale value: ${currency.format(cocaineProductValue)}`
     console.log('+1 minute product')
 }
+
+function weedSupplyTimer() {
+  if (weedSupplyTimeLeft <= 0) {
+    stopAllWeedTimers()
+  }
+    weedSupplyCost += 750
+    weedSupplyTimeLeft -= 1
+    document.querySelector('.weedSupplyPercent').style.width = weedSupplyTimeLeft + '%'
+    document.querySelector('#weedSupply').innerText = `Resupply cost: ${currency.format(weedSupplyCost)}`
+    console.log('-1 supply')
+}
+
+
+function weedProductTimer() {
+  if (weedProductProduced >= 100) {
+    stopAllWeedTimers()
+}
+    weedProductProduced += 1.25 
+    weedProductValue += 3150
+    // weedPercentage += 1
+    document.querySelector('.weedProductPercent').style.width = weedProductProduced + '%'
+    document.querySelector('#weedValue').innerText = `Sale value: ${currency.format(weedProductValue)}`
+    console.log('+1 weed minute product')
+}
+
+function moneySupplyTimer() {
+  if (moneySupplyTimeLeft <= 0) {
+    stopAllMoneyTimers()
+  }
+    moneySupplyCost += 750
+    moneySupplyTimeLeft -= 1
+    document.querySelector('.moneySupplyPercent').style.width = moneySupplyTimeLeft + '%'
+    document.querySelector('#moneySupply').innerText = `Resupply cost: ${currency.format(moneySupplyCost)}`
+    console.log('-1 money supply')
+}
+
+
+function moneyProductTimer() {
+  if (moneyProductProduced >= 100) {
+    stopAllMoneyTimers()
+}
+    moneyProductProduced += 2.5 
+    moneyProductValue += 7350
+    // moneyPercentage += 1
+    document.querySelector('.moneyProductPercent').style.width = moneyProductProduced + '%'
+    document.querySelector('#moneyValue').innerText = `Sale value: ${currency.format(moneyProductValue)}`
+    console.log('+1 money minute product')
+}
+

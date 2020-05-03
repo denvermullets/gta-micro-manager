@@ -126,3 +126,260 @@
     background-color: white;
 }
 
+/* weed stuff */
+.progressWeedSupply {
+    width: 500px;
+}
+.progressWeedSupply header span {
+    color: #666;
+    float: right;
+}
+.progressWeedSupply .bar {
+    position: relative;
+    background-color: #ccc;
+    height: 30px;
+}
+.progressWeedSupply .bar .weedSupplyPercent {
+    color: white;
+    background-color: #0c0;
+    height: 30px;
+    /* width: 70%; */
+}
+.progressWeedSupply .bar .ref {
+    position: absolute;
+    left: 80%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressWeedSupply .bar .ref:before {
+    content: attr(data-ref);
+    position: absolute;
+    width: 100px;
+    left: -50px;
+    top: 100%;
+    color: #888;
+    text-align: center;
+}
+.progressWeedSupply .bar .ref2 {
+    position: absolute;
+    left: 60%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressWeedSupply .bar .ref3 {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressWeedSupply .bar .ref4 {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+
+.progressWeedProduct {
+    width: 500px;
+}
+.progressWeedProduct header span {
+    color: #666;
+    float: right;
+}
+.progressWeedProduct .bar {
+    position: relative;
+    background-color: #ccc;
+    height: 30px;
+}
+.progressWeedProduct .bar .weedProductPercent {
+    color: white;
+    background-color: #33D7FF;
+    height: 30px;
+    width: 0%;
+}
+.progressWeedProduct .bar .ref {
+    position: absolute;
+    left: 80%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressWeedProduct .bar .solo {
+    position: absolute;
+    left: 30%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressWeedProduct .bar .solo:before {
+    content: attr(data-ref);
+    position: absolute;
+    width: 100px;
+    left: -50px;
+    top: 100%;
+    color: #888;
+    text-align: center;
+}
+.progressWeedProduct .bar .ref2 {
+    position: absolute;
+    left: 60%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressWeedProduct .bar .ref3 {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressWeedProduct .bar .ref4 {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+/* fake money stuff */
+.progressMoneySupply {
+    width: 500px;
+}
+.progressMoneySupply header span {
+    color: #666;
+    float: right;
+}
+.progressMoneySupply .bar {
+    position: relative;
+    background-color: #ccc;
+    height: 30px;
+}
+.progressMoneySupply .bar .moneySupplyPercent {
+    color: white;
+    background-color: #0c0;
+    height: 30px;
+    /* width: 70%; */
+}
+.progressMoneySupply .bar .ref {
+    position: absolute;
+    left: 80%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressMoneySupply .bar .ref:before {
+    content: attr(data-ref);
+    position: absolute;
+    width: 100px;
+    left: -50px;
+    top: 100%;
+    color: #888;
+    text-align: center;
+}
+.progressMoneySupply .bar .ref2 {
+    position: absolute;
+    left: 60%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressMoneySupply .bar .ref3 {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressMoneySupply .bar .ref4 {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+
+.progressMoneyProduct {
+    width: 500px;
+}
+.progressMoneyProduct header span {
+    color: #666;
+    float: right;
+}
+.progressMoneyProduct .bar {
+    position: relative;
+    background-color: #ccc;
+    height: 30px;
+}
+.progressMoneyProduct .bar .moneyProductPercent {
+    color: white;
+    background-color: #33D7FF;
+    height: 30px;
+    width: 0%;
+}
+.progressMoneyProduct .bar .ref {
+    position: absolute;
+    left: 80%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressMoneyProduct .bar .solo {
+    position: absolute;
+    left: 30%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressMoneyProduct .bar .solo:before {
+    content: attr(data-ref);
+    position: absolute;
+    width: 100px;
+    left: -50px;
+    top: 100%;
+    color: #888;
+    text-align: center;
+}
+.progressMoneyProduct .bar .ref2 {
+    position: absolute;
+    left: 60%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressMoneyProduct .bar .ref3 {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+.progressMoneyProduct .bar .ref4 {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+
