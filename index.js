@@ -8,16 +8,18 @@ const currency = new Intl.NumberFormat('en-US', {
   //currency.format(2500) // this is how you call it
 })
 // init timer variables
+let activeTimer = false
 let cocaineSupply
 let cocaineProduct
 let weedSupply
 let weedProduct
 let moneySupply
 let moneyProduct
+
 // coke init supply percentages / value
-let cocaineSupplyTimeLeft = 100
+let cocaineSupplyTimeLeft = 50
 let cocaineSupplyCost = 0
-let cocaineProductProduced = 0
+let cocaineProductProduced = 50
 let cocaineProductValue = 0
 let cocainePercentage = 0
 // weed init supply percentages / value
@@ -34,46 +36,125 @@ let moneyProductValue = 0
 let moneyPercentage = 0
 
 document.addEventListener('DOMContentLoaded', function(event){
+  updateCoke()
 
 })
 
 startBtn.addEventListener('click', function(event){      
-  startAllTimers()
+  isActive()
 })
 
+document.querySelector('#decreaseCokeProduct').addEventListener('click', function(event){
+  if (cocaineProductProduced === 0) {
+    console.log('no product left')
+  } else {
+    cocaineProductProduced -= 10
+    cocaineProductValue -= 4200
+    updateCoke()
+  }
+})
+
+document.querySelector('#decreaseCokeSupply').addEventListener('click', function(event){
+  if (cocaineSupplyTimeLeft === 0) {
+    console.log('no product left')
+  } else {
+    cocaineSupplyTimeLeft -= 1
+    updateCoke()
+  }
+})
+
+document.querySelector('#increaseCokeSupply').addEventListener('click', function(event){
+  if (cocaineSupplyTimeLeft === 100) {
+    console.log('max supply')
+  } else {
+    cocaineSupplyTimeLeft += 1
+    updateCoke()
+  }
+})
 
 resupplyCokeBtn.addEventListener('click', function(event) { 
-  stopAllCokeTimers()
-
   cocaineSupplyTimeLeft = 100
   cocaineSupplyCost = 0
-  document.querySelector('.cokeSupplyPercent').style.width = cocaineSupplyTimeLeft + '%'
-  document.querySelector('#cocaineSupply').innerText = `Resupply cost: ${currency.format(cocaineSupplyCost)}`
-
-  startAllTimers()
+  updateCoke()
 })
 
+document.querySelector('#sellCocaine').addEventListener('click', function(event) {
+  cocaineProductProduced = 0
+  cocaineProductValue = 0
+  updateCoke()
+})
+
+function updateCoke() {
+  document.querySelector('.cokeSupplyPercent').style.width = cocaineSupplyTimeLeft + '%'
+  document.querySelector('#cocaineSupply').innerText = `Resupply cost: ${currency.format(cocaineSupplyCost)}`
+  document.querySelector('.cokeProductPercent').style.width = cocaineProductProduced + '%'
+  document.querySelector('#cocaineValue').innerText = `Sale value: ${currency.format(cocaineProductValue)}`
+  console.log('coke updated')
+  
+}
+
+function updateWeed() {
+  document.querySelector('.weedSupplyPercent').style.width = weedSupplyTimeLeft + '%'
+  document.querySelector('#weedSupply').innerText = `Resupply cost: ${currency.format(weedSupplyCost)}`
+  document.querySelector('.weedProductPercent').style.width = weedProductProduced + '%'
+  document.querySelector('#weedValue').innerText = `Sale value: ${currency.format(weedProductValue)}`
+  console.log('weed updated')
+
+}
+
+function updateMoney() {
+  document.querySelector('.moneySupplyPercent').style.width = moneySupplyTimeLeft + '%'
+  document.querySelector('#moneySupply').innerText = `Resupply cost: ${currency.format(moneySupplyCost)}`
+  document.querySelector('.moneyProductPercent').style.width = moneyProductProduced + '%'
+  document.querySelector('#moneyValue').innerText = `Sale value: ${currency.format(moneyProductValue)}`
+  console.log('money')
+}
+
+function isActive () {
+  if (activeTimer === false) {
+    startBtn.innerText = 'Stop Business Timers'
+    activeTimer = true
+    startAllTimers()
+  } else {
+    startBtn.innerText = 'Start Business Timers'
+    activeTimer = false
+    stopAllTimers()
+  }
+}
+
 function startAllTimers() {
-  console.log("timers started")
-  cocaineSupply = setInterval(cocaineSupplyTimer, 72000)  // 1:12 M:s 72000
-  cocaineProduct = setInterval(cocaineProductTimer, 60000) // 1:30 M:s -- 90000 // 15m = 900000ms  // 8.4mins makes 1 box -- 504000ms // - 60000 = 1min
+  cocaineSupply = setInterval(cocaineSupplyTimer, 60000)  // 1:12 M:s 72000
+  cocaineProduct = setInterval(cocaineProductTimer, 60000) // - 60000 = 1min
   weedSupply = setInterval(weedSupplyTimer, 120000)  // 2:00 M:s 120000
   weedProduct = setInterval(weedProductTimer, 240000) // 4:00 M:s 240000
   moneySupply = setInterval(moneySupplyTimer, 96000)  // 1:36 M:s 96000
   moneyProduct = setInterval(moneyProductTimer, 480000) // 8:00 M:s 480000
+  console.log("timers started")
+}
 
+function stopAllTimers() {
+  stopAllCokeTimers()
+  stopAllWeedTimers()
+  stopAllMoneyTimers()
+  console.log('all timers stopped')
+}
+
+function stopAllMoneyTimers() {
+  clearInterval(moneySupply)
+  clearInterval(moneyProduct)
+  console.log('stop all money timers')
 }
 
 function stopAllCokeTimers() {
-  console.log('coke timers stopped')
   clearInterval(cocaineSupply)
   clearInterval(cocaineProduct)
+  console.log('coke timers stopped')
 }
 
-function stopAllCokeTimers() {
-  console.log('weed timers stopped')
+function stopAllWeedTimers() {
   clearInterval(weedSupply)
   clearInterval(weedProduct)
+  console.log('weed timers stopped')
 }
 
 function cocaineSupplyTimer() {
@@ -82,8 +163,7 @@ function cocaineSupplyTimer() {
   }
     cocaineSupplyCost += 750
     cocaineSupplyTimeLeft -= 1
-    document.querySelector('.cokeSupplyPercent').style.width = cocaineSupplyTimeLeft + '%'
-    document.querySelector('#cocaineSupply').innerText = `Resupply cost: ${currency.format(cocaineSupplyCost)}`
+    updateCoke()
     console.log('-1 supply')
 }
 
@@ -113,8 +193,7 @@ function cocaineProductTimer() {
     cocaineProductValue += 84000
   }
     cocainePercentage += 1
-    document.querySelector('.cokeProductPercent').style.width = cocaineProductProduced + '%'
-    document.querySelector('#cocaineValue').innerText = `Sale value: ${currency.format(cocaineProductValue)}`
+    updateCoke()
     console.log('+1 minute product')
 }
 
@@ -124,11 +203,9 @@ function weedSupplyTimer() {
   }
     weedSupplyCost += 750
     weedSupplyTimeLeft -= 1
-    document.querySelector('.weedSupplyPercent').style.width = weedSupplyTimeLeft + '%'
-    document.querySelector('#weedSupply').innerText = `Resupply cost: ${currency.format(weedSupplyCost)}`
+    updateWeed()
     console.log('-1 supply')
 }
-
 
 function weedProductTimer() {
   if (weedProductProduced >= 100) {
@@ -137,8 +214,7 @@ function weedProductTimer() {
     weedProductProduced += 1.25 
     weedProductValue += 3150
     // weedPercentage += 1
-    document.querySelector('.weedProductPercent').style.width = weedProductProduced + '%'
-    document.querySelector('#weedValue').innerText = `Sale value: ${currency.format(weedProductValue)}`
+    updateWeed()
     console.log('+1 weed minute product')
 }
 
@@ -148,11 +224,9 @@ function moneySupplyTimer() {
   }
     moneySupplyCost += 750
     moneySupplyTimeLeft -= 1
-    document.querySelector('.moneySupplyPercent').style.width = moneySupplyTimeLeft + '%'
-    document.querySelector('#moneySupply').innerText = `Resupply cost: ${currency.format(moneySupplyCost)}`
+    updateMoney()
     console.log('-1 money supply')
 }
-
 
 function moneyProductTimer() {
   if (moneyProductProduced >= 100) {
@@ -161,8 +235,7 @@ function moneyProductTimer() {
     moneyProductProduced += 2.5 
     moneyProductValue += 7350
     // moneyPercentage += 1
-    document.querySelector('.moneyProductPercent').style.width = moneyProductProduced + '%'
-    document.querySelector('#moneyValue').innerText = `Sale value: ${currency.format(moneyProductValue)}`
+    updateMoney()
     console.log('+1 money minute product')
 }
 

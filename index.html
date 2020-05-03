@@ -8,16 +8,32 @@
     <title>GTA Micro Manager</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <b>GTA Micro Manager</b>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
 </head>
-
 <body>
-    
-    <div class="columns is-mobile"> 
+    <div class="columns"> 
         <div class="column is-three-fifths is-offset-one-fifth">
-            <h1>GTA Micro Manager</h1>
-            <button class="button is-small" id="start">Start</button> 
-            <div class="box">
-                
+            <button class="button is-large" id="start">
+                <!-- <i class="fas fa-hourglass-end"></i> -->
+                <!-- <span class="icon is-medium" id='startIcon'>
+                    <i class="fas fa-hourglass-start" id='iconPath'></i>
+                </span> -->
+                <span>Start Business Timers</span>
+            </button> 
+            <br><br>
+<!-- Cocaine box -->
+            <div class="box">          
                 <div id="cokeChart">
                     <div class="progressCokeProduct">
                         <header><b>Cocaine Product:</b><span id="cocaineValue">Sale value: $0</span></header>
@@ -31,8 +47,6 @@
                         </div>
                     </div>
                     <br>
-                    
-                    
                     <div class="progressCokeSupply">
                         <header><b>Cocaine Supply:</b><span id="cocaineSupply">Resupply cost: $0</span></header>
                         <div class="bar">
@@ -74,67 +88,125 @@
                     </button>
                 </div>
             </div>
-            <br><br>
-            <div id="weedChart">
-                <div class="progressWeedProduct">
-                    <header><b>Weed Product:</b><span id="weedValue">Sale value: $0</span></header>
-                    <div class="bar">
-                        <div class="weedProductPercent" ></div>
-                        <div class="solo" data-ref="Solo Sale"></div>
-                        <div class="ref" ></div>
+<!-- end Cocaine box -->
+            <br>
+<!-- Weed box -->
+            <div class="box">
+                <div id="weedChart">
+                    <div class="progressWeedProduct">
+                        <header><b>Weed Product:</b><span id="weedValue">Sale value: $0</span></header>
+                        <div class="bar">
+                            <div class="weedProductPercent" ></div>
+                            <div class="solo" data-ref="Solo Sale"></div>
+                            <div class="ref" ></div>
+                                <div class="ref2" ></div>
+                                <div class="ref3" ></div>
+                                <div class="ref4" ></div>
+                            </div>
+                        </div>
+                    <br>
+                    <div class="progressWeedSupply">
+                        <header><b>Weed Supply:</b><span id="weedSupply">Resupply cost: $0</span></header>
+                        <div class="bar">
+                            <div class="weedSupplyPercent" ></div>
+                            <div class="ref" ></div>
                             <div class="ref2" ></div>
                             <div class="ref3" ></div>
                             <div class="ref4" ></div>
                         </div>
                     </div>
-                <br><br>
-                <button id="resupplyWeed">Resupply Weed</button> <button id="sellWeed">Sell Weed</button>
-                <button id="decreaseWeedSupply"><<</button>- Supply -<button id="increaseWeedSupply">>></button>
-                <button id="decreaseWeedProduct"><<</button>- Product -<button id="increaseWeedProduct">>></button>
-                <br><br>
-                <div class="progressWeedSupply">
-                    <header><b>Weed Supply:</b><span id="weedSupply">Resupply cost: $0</span></header>
-                    <div class="bar">
-                        <div class="weedSupplyPercent" ></div>
-                        <div class="ref" ></div>
-                        <div class="ref2" ></div>
-                        <div class="ref3" ></div>
-                        <div class="ref4" ></div>
+                    <br>
+                    <div class="buttons is-centered">
+                        <button class="button is-small" id="resupplyWeed">Resupply Weed</button>
+                        <button class="button is-small" id="sellWeed">Sell Weed</button>
+                        <button class="button is-small" id="decreaseWeedSupply">
+                            <span class="icon">
+                                <i class="fas fa-angle-double-down"></i>
+                            </span>
+                            <span>Supply</span>
+                        </button>
+                        <button class="button is-small" id="increaseWeedSupply">
+                            <span class="icon">
+                                <i class="fas fa-angle-double-up"></i>
+                            </span>
+                            <span>Supply</span>
+                        </button>
+                        <button class="button is-small" id="decreaseWeedProduct">
+                            <span class="icon">
+                                <i class="fas fa-angle-double-down"></i>
+                            </span>
+                            <span>Product</span>
+                        </button>
+                        <button class="button is-small" id="increaseWeedProduct">
+                            <span class="icon">
+                                <i class="fas fa-angle-double-up"></i>
+                            </span>
+                            <span>Product</span>
+                        </button>
                     </div>
                 </div>
             </div>
-            <br><br>
-            <div id="moneyChart">
-                <div class="progressMoneyProduct">
-                    <header><b>Money Product:</b><span id="moneyValue">Sale value: $0</span></header>
-                    <div class="bar">
-                        <div class="moneyProductPercent" ></div>
-                        <div class="solo" data-ref="Solo Sale"></div>
-                        <div class="ref" ></div>
-                        <div class="ref2" ></div>
-                        <div class="ref3" ></div>
-                        <div class="ref4" ></div>
+<!-- end Weed box -->
+            <br>
+<!-- money box -->
+            <div class="box">
+                <div id="moneyChart">
+                    <div class="progressMoneyProduct">
+                        <header><b>Money Product:</b><span id="moneyValue">Sale value: $0</span></header>
+                        <div class="bar">
+                            <div class="moneyProductPercent" ></div>
+                            <div class="solo" data-ref="Solo Sale"></div>
+                            <div class="ref" ></div>
+                            <div class="ref2" ></div>
+                            <div class="ref3" ></div>
+                            <div class="ref4" ></div>
+                        </div>
                     </div>
-                </div>
-                <br><br>
-                <button id="resupplyMoney">Resupply Money</button> <button id="sellMoney">Sell Money</button>
-                <button id="decreaseMoneySupply"><<</button>- Supply -<button id="increaseMoneySupply">>></button>
-                <button id="decreaseMoneyProduct"><<</button>- Product -<button id="increaseMoneyProduct">>></button>
-                <br><br>
-                <div class="progressMoneySupply">
-                    <header><b>Money Supply:</b><span id="moneySupply">Resupply cost: $0</span></header>
-                    <div class="bar">
-                        <div class="moneySupplyPercent" ></div>
-                        <div class="ref" ></div>
-                        <div class="ref2" ></div>
-                        <div class="ref3" ></div>
-                        <div class="ref4" ></div>
+                    <br>
+                    <div class="progressMoneySupply">
+                        <header><b>Money Supply:</b><span id="moneySupply">Resupply cost: $0</span></header>
+                        <div class="bar">
+                            <div class="moneySupplyPercent" ></div>
+                            <div class="ref" ></div>
+                            <div class="ref2" ></div>
+                            <div class="ref3" ></div>
+                            <div class="ref4" ></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="buttons is-centered">
+                        <button class="button is-small" id="resupplyMoney">Resupply Money</button>
+                        <button class="button is-small" id="sellMoney">Sell Money</button>
+                        <button class="button is-small" id="decreaseMoneySupply">
+                            <span class="icon">
+                                <i class="fas fa-angle-double-down"></i>
+                            </span>
+                            <span>Supply</span>
+                        </button>
+                        <button class="button is-small" id="increaseMoneySupply">
+                            <span class="icon">
+                                <i class="fas fa-angle-double-up"></i>
+                            </span>
+                            <span>Supply</span>
+                        </button>
+                        <button class="button is-small" id="decreaseMoneyProduct">
+                            <span class="icon">
+                                <i class="fas fa-angle-double-down"></i>
+                            </span>
+                            <span>Product</span>
+                        </button>
+                        <button class="button is-small" id="increaseMoneyProduct">
+                            <span class="icon">
+                                <i class="fas fa-angle-double-up"></i>
+                            </span>
+                            <span>Product</span>
+                        </button>
                     </div>
                 </div>
             </div>
+<!-- end money box -->
         </div>
     </div>
-            
             
   <script src="index.js" charset="utf-8"></script>
 </body>

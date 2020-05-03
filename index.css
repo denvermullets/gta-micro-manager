@@ -12,7 +12,7 @@
 }
 .progressCokeSupply .bar .cokeSupplyPercent {
     color: white;
-    background-color: #0c0;
+    background-color: #34c96b;
     height: 30px;
     /* width: 70%; */
 }
@@ -141,7 +141,7 @@
 }
 .progressWeedSupply .bar .weedSupplyPercent {
     color: white;
-    background-color: #0c0;
+    background-color: #34c96b;
     height: 30px;
     /* width: 70%; */
 }
@@ -269,7 +269,7 @@
 }
 .progressMoneySupply .bar .moneySupplyPercent {
     color: white;
-    background-color: #0c0;
+    background-color: #34c96b;
     height: 30px;
     /* width: 70%; */
 }
