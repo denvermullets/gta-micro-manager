@@ -1,5 +1,5 @@
 .progressCokeSupply {
-    width: 500px;
+    /* width: 500px; */
 }
 .progressCokeSupply header span {
     color: #666;
@@ -59,7 +59,7 @@
 }
 
 .progressCokeProduct {
-    width: 500px;
+    /* width: 500px; */
 }
 .progressCokeProduct header span {
     color: #666;
@@ -128,7 +128,7 @@
 
 /* weed stuff */
 .progressWeedSupply {
-    width: 500px;
+    /* width: 500px; */
 }
 .progressWeedSupply header span {
     color: #666;
@@ -188,7 +188,7 @@
 }
 
 .progressWeedProduct {
-    width: 500px;
+    /* width: 500px; */
 }
 .progressWeedProduct header span {
     color: #666;
@@ -256,7 +256,7 @@
 }
 /* fake money stuff */
 .progressMoneySupply {
-    width: 500px;
+    /* width: 500px; */
 }
 .progressMoneySupply header span {
     color: #666;
@@ -316,7 +316,7 @@
 }
 
 .progressMoneyProduct {
-    width: 500px;
+    /* width: 500px; */
 }
 .progressMoneyProduct header span {
     color: #666;

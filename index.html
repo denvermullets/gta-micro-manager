@@ -2,110 +2,141 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
-    <!-- <script src="scripts/index.js" charset="utf-8"></script> -->
     <title>GTA Micro Manager</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
 <body>
-    <h1>GTA Micro Manager</h1>
-    <button id="start">Start</button> 
-    <div id="cokeChart">
-        <div class="progressCokeProduct">
-            <header><b>Cocaine Product:</b><span id="cocaineValue">Sale value: $0</span></header>
-            <div class="bar">
-                <div class="cokeProductPercent" ></div>
-                <div class="solo" data-ref="Solo Sale"></div>
-                <div class="ref" ></div>
-                <div class="ref2" ></div>
-                <div class="ref3" ></div>
-                <div class="ref4" ></div>
+    
+    <div class="columns is-mobile"> 
+        <div class="column is-three-fifths is-offset-one-fifth">
+            <h1>GTA Micro Manager</h1>
+            <button class="button is-small" id="start">Start</button> 
+            <div class="box">
+                
+                <div id="cokeChart">
+                    <div class="progressCokeProduct">
+                        <header><b>Cocaine Product:</b><span id="cocaineValue">Sale value: $0</span></header>
+                        <div class="bar">
+                            <div class="cokeProductPercent" ></div>
+                            <div class="solo" data-ref="Solo Sale"></div>
+                            <div class="ref" ></div>
+                            <div class="ref2" ></div>
+                            <div class="ref3" ></div>
+                            <div class="ref4" ></div>
+                        </div>
+                    </div>
+                    <br>
+                    
+                    
+                    <div class="progressCokeSupply">
+                        <header><b>Cocaine Supply:</b><span id="cocaineSupply">Resupply cost: $0</span></header>
+                        <div class="bar">
+                            <div class="cokeSupplyPercent" ></div>
+                            <div class="ref" ></div>
+                            <div class="ref2" ></div>
+                            <div class="ref3" ></div>
+                            <div class="ref4" ></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="buttons is-centered">
+                    <button class="button is-small" id="resupplyCocaine">Resupply Cocaine</button>
+                    <button class="button is-small" id="sellCocaine">Sell Cocaine</button>
+                    <button class="button is-small" id="decreaseCokeSupply">
+                        <span class="icon">
+                            <i class="fas fa-angle-double-down"></i>
+                        </span>
+                        <span>Supply</span>
+                    </button>
+                    <button class="button is-small" id="increaseCokeSupply">
+                        <span class="icon">
+                            <i class="fas fa-angle-double-up"></i>
+                        </span>
+                        <span>Supply</span>
+                    </button>
+                    <button class="button is-small" id="decreaseCokeProduct">
+                        <span class="icon">
+                            <i class="fas fa-angle-double-down"></i>
+                        </span>
+                        <span>Product</span>
+                    </button>
+                    <button class="button is-small" id="increaseCokeProduct">
+                        <span class="icon">
+                            <i class="fas fa-angle-double-up"></i>
+                        </span>
+                        <span>Product</span>
+                    </button>
+                </div>
             </div>
-        </div>
-        <br><br>
-        <button id="resupplyCocaine">Resupply Cocaine</button> <button id="sellCocaine">Sell Cocaine</button>
-        <button id="decreaseCokeSupply"><<</button>- Supply -<button id="increaseCokeSupply">>></button>
-        <button id="decreaseCokeProduct"><<</button>- Product -<button id="increaseCokeProduct">>></button>
-        <br><br>
-        <div class="progressCokeSupply">
-            <header><b>Cocaine Supply:</b><span id="cocaineSupply">Resupply cost: $0</span></header>
-            <div class="bar">
-                <div class="cokeSupplyPercent" ></div>
-                <!-- <div class="ref" data-ref="TODAY"></div> -->
-                <div class="ref" ></div>
-                <div class="ref2" ></div>
-                <div class="ref3" ></div>
-                <div class="ref4" ></div>
+            <br><br>
+            <div id="weedChart">
+                <div class="progressWeedProduct">
+                    <header><b>Weed Product:</b><span id="weedValue">Sale value: $0</span></header>
+                    <div class="bar">
+                        <div class="weedProductPercent" ></div>
+                        <div class="solo" data-ref="Solo Sale"></div>
+                        <div class="ref" ></div>
+                            <div class="ref2" ></div>
+                            <div class="ref3" ></div>
+                            <div class="ref4" ></div>
+                        </div>
+                    </div>
+                <br><br>
+                <button id="resupplyWeed">Resupply Weed</button> <button id="sellWeed">Sell Weed</button>
+                <button id="decreaseWeedSupply"><<</button>- Supply -<button id="increaseWeedSupply">>></button>
+                <button id="decreaseWeedProduct"><<</button>- Product -<button id="increaseWeedProduct">>></button>
+                <br><br>
+                <div class="progressWeedSupply">
+                    <header><b>Weed Supply:</b><span id="weedSupply">Resupply cost: $0</span></header>
+                    <div class="bar">
+                        <div class="weedSupplyPercent" ></div>
+                        <div class="ref" ></div>
+                        <div class="ref2" ></div>
+                        <div class="ref3" ></div>
+                        <div class="ref4" ></div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div id="moneyChart">
+                <div class="progressMoneyProduct">
+                    <header><b>Money Product:</b><span id="moneyValue">Sale value: $0</span></header>
+                    <div class="bar">
+                        <div class="moneyProductPercent" ></div>
+                        <div class="solo" data-ref="Solo Sale"></div>
+                        <div class="ref" ></div>
+                        <div class="ref2" ></div>
+                        <div class="ref3" ></div>
+                        <div class="ref4" ></div>
+                    </div>
+                </div>
+                <br><br>
+                <button id="resupplyMoney">Resupply Money</button> <button id="sellMoney">Sell Money</button>
+                <button id="decreaseMoneySupply"><<</button>- Supply -<button id="increaseMoneySupply">>></button>
+                <button id="decreaseMoneyProduct"><<</button>- Product -<button id="increaseMoneyProduct">>></button>
+                <br><br>
+                <div class="progressMoneySupply">
+                    <header><b>Money Supply:</b><span id="moneySupply">Resupply cost: $0</span></header>
+                    <div class="bar">
+                        <div class="moneySupplyPercent" ></div>
+                        <div class="ref" ></div>
+                        <div class="ref2" ></div>
+                        <div class="ref3" ></div>
+                        <div class="ref4" ></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <br><br>
-    <div id="weedChart">
-        <div class="progressWeedProduct">
-            <header><b>Weed Product:</b><span id="weedValue">Sale value: $0</span></header>
-            <div class="bar">
-                <div class="weedProductPercent" ></div>
-                <div class="solo" data-ref="Solo Sale"></div>
-                <div class="ref" ></div>
-                <div class="ref2" ></div>
-                <div class="ref3" ></div>
-                <div class="ref4" ></div>
-            </div>
-        </div>
-        <br><br>
-        <button id="resupplyWeed">Resupply Weed</button> <button id="sellWeed">Sell Weed</button>
-        <button id="decreaseWeedSupply"><<</button>- Supply -<button id="increaseWeedSupply">>></button>
-        <button id="decreaseWeedProduct"><<</button>- Product -<button id="increaseWeedProduct">>></button>
-        <br><br>
-        <div class="progressWeedSupply">
-            <header><b>Weed Supply:</b><span id="weedSupply">Resupply cost: $0</span></header>
-            <div class="bar">
-                <div class="weedSupplyPercent" ></div>
-                <!-- <div class="ref" data-ref="TODAY"></div> -->
-                <div class="ref" ></div>
-                <div class="ref2" ></div>
-                <div class="ref3" ></div>
-                <div class="ref4" ></div>
-            </div>
-        </div>
-    </div>
-    <br><br>
-    <div id="moneyChart">
-        <div class="progressMoneyProduct">
-            <header><b>Money Product:</b><span id="moneyValue">Sale value: $0</span></header>
-            <div class="bar">
-                <div class="moneyProductPercent" ></div>
-                <div class="solo" data-ref="Solo Sale"></div>
-                <div class="ref" ></div>
-                <div class="ref2" ></div>
-                <div class="ref3" ></div>
-                <div class="ref4" ></div>
-            </div>
-        </div>
-        <br><br>
-        <button id="resupplyMoney">Resupply Money</button> <button id="sellMoney">Sell Money</button>
-        <button id="decreaseMoneySupply"><<</button>- Supply -<button id="increaseMoneySupply">>></button>
-        <button id="decreaseMoneyProduct"><<</button>- Product -<button id="increaseMoneyProduct">>></button>
-        <br><br>
-        <div class="progressMoneySupply">
-            <header><b>Money Supply:</b><span id="moneySupply">Resupply cost: $0</span></header>
-            <div class="bar">
-                <div class="moneySupplyPercent" ></div>
-                <!-- <div class="ref" data-ref="TODAY"></div> -->
-                <div class="ref" ></div>
-                <div class="ref2" ></div>
-                <div class="ref3" ></div>
-                <div class="ref4" ></div>
-            </div>
-        </div>
-    </div>
-        <!-- <div class="w3-progress-container w3-round-xlarge">
-        <div class="w3-progressbar w3-round-xlarge" style="width:50%"></div>
-    </div> -->
-
-
-    <script src="index.js" charset="utf-8"></script>
+            
+            
+  <script src="index.js" charset="utf-8"></script>
 </body>
 
 </html>
