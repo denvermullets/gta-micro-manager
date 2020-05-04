@@ -46,7 +46,7 @@ document.querySelector('#decreaseCokeProduct').addEventListener('click', functio
   } else {
     cocaineProductProduced -= 10
     cocaineProductValue -= 42000
-    updateCoke()
+    updateBars()
   }
 })
 
@@ -271,7 +271,7 @@ function cocaineSupplyTimer() {
   }
     cocaineSupplyCost += 750
     cocaineSupplyTimeLeft -= 1
-    updateCoke()
+    updateBars()
     console.log('-1 supply')
 }
 
@@ -311,7 +311,7 @@ function weedSupplyTimer() {
   }
     weedSupplyCost += 750
     weedSupplyTimeLeft -= 1
-    updateWeed()
+    updateBars()
     console.log('-1 supply')
 }
 
@@ -332,7 +332,7 @@ function moneySupplyTimer() {
   }
     moneySupplyCost += 750
     moneySupplyTimeLeft -= 1
-    updateMoney()
+    updateBars()
     console.log('-1 money supply')
 }
 
