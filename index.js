@@ -15,7 +15,6 @@ let weedSupply
 let weedProduct
 let moneySupply
 let moneyProduct
-
 // coke init supply percentages / value
 let cocaineSupplyTimeLeft = 50
 let cocaineSupplyCost = 37500
@@ -23,11 +22,10 @@ let cocaineProductProduced = 50
 let cocaineProductValue = 210000
 let cocainePercentage = 0
 // weed init supply percentages / value
-let weedSupplyTimeLeft = 100
-let weedSupplyCost = 0
-let weedProductProduced = 0
-let weedProductValue = 0
-let weedPercentage = 0
+let weedSupplyTimeLeft = 50
+let weedSupplyCost = 37500
+let weedProductProduced = 50
+let weedProductValue = 126000
 // money init supply percentages / value
 let moneySupplyTimeLeft = 100
 let moneySupplyCost = 0
@@ -36,8 +34,7 @@ let moneyProductValue = 0
 let moneyPercentage = 0
 
 document.addEventListener('DOMContentLoaded', function(event){
-  updateCoke()
-
+  updateBars()
 })
 
 startBtn.addEventListener('click', function(event){      
@@ -60,7 +57,7 @@ document.querySelector('#decreaseCokeSupply').addEventListener('click', function
   } else {
     cocaineSupplyTimeLeft -= 1
     cocaineSupplyCost += 750
-    updateCoke()
+    updateBars()
   }
 })
 
@@ -70,7 +67,7 @@ document.querySelector('#increaseCokeSupply').addEventListener('click', function
   } else {
     cocaineSupplyTimeLeft += 1
     cocaineSupplyCost -= 750
-    updateCoke()
+    updateBars()
   }
 })
 
@@ -80,7 +77,7 @@ document.querySelector('#increaseCokeProduct').addEventListener('click', functio
   } else {
     cocaineProductProduced += 10
     cocaineProductValue += 42000
-    updateCoke()
+    updateBars()
   }
 })
 
@@ -91,7 +88,18 @@ document.querySelector('#decreaseWeedProduct').addEventListener('click', functio
   } else {
     weedProductProduced -= 1.25 
     weedProductValue -= 3150
-    updateWeed()
+    updateBars()
+  }
+})
+
+
+document.querySelector('#increaseWeedProduct').addEventListener('click', function(event){
+  if (weedProductProduced === 100) {
+    console.log('max product')
+  } else {
+    weedProductProduced += 1.25 
+    weedProductValue += 3150
+    updateBars()
   }
 })
 
@@ -100,8 +108,8 @@ document.querySelector('#decreaseWeedSupply').addEventListener('click', function
     console.log('no product left')
   } else {
     weedSupplyTimeLeft -= 1
-    weedSupplyCost -= 750
-    updateWeed()
+    weedSupplyCost += 750
+    updateBars()
   }
 })
 
@@ -109,60 +117,107 @@ document.querySelector('#increaseWeedSupply').addEventListener('click', function
   if (weedSupplyTimeLeft === 100) {
     console.log('max supply')
   } else {
-    
-
-    updateWeed()
+    weedSupplyTimeLeft += 1
+    weedSupplyCost -= 750
+    updateBars()
   }
 })
 
-document.querySelector('#increaseWeedProduct').addEventListener('click', function(event){
-  if (weedProductProduced === 100) {
-    console.log('max product')
-  } else {
-    weedProductProduced += 1.25 
-    weedProductValue += 3150
-    updateWeed()
-  }
+document.querySelector('#sellWeed').addEventListener('click', () => {
+  weedProductProduced = 0
+  weedProductValue = 0
+  updateBars()
+})
+
+document.querySelector('#resupplyWeed').addEventListener('click', () => {
+  weedSupplyTimeLeft = 100
+  weedSupplyCost = 0
+  updateBars()
 })
 
 
-resupplyCokeBtn.addEventListener('click', function(event) { 
+resupplyCokeBtn.addEventListener('click', () => { 
   cocaineSupplyTimeLeft = 100
   cocaineSupplyCost = 0
-  updateCoke()
+  updateBars()
 })
 
-document.querySelector('#sellCocaine').addEventListener('click', function(event) {
+document.querySelector('#sellCocaine').addEventListener('click', () => {
   cocaineProductProduced = 0
   cocaineProductValue = 0
-  updateCoke()
+  updateBars()
 })
 
-function updateCoke() {
+document.querySelector('#decreaseMoneySupply').addEventListener('click', () => {
+  if (moneySupplyTimeLeft === 0) {
+    console.log('no product left')
+  } else {
+    moneySupplyTimeLeft -= 1
+    moneySupplyCost += 750
+    updateBars()
+  }
+})
+
+document.querySelector('#increaseMoneySupply').addEventListener('click', () => {
+  if (moneySupplyTimeLeft === 100) {
+    console.log('max supply')
+  } else {
+    moneySupplyTimeLeft += 1
+    moneySupplyCost -= 750
+    updateBars()
+  }
+})
+
+document.querySelector('#decreaseMoneyProduct').addEventListener('click', () => {
+  if (moneyProductProduced === 0) {
+    console.log('no product left')
+  } else {
+    moneyProductProduced -= 2.5 
+    moneyProductValue -= 7350
+    updateBars()
+  }
+})
+
+
+document.querySelector('#increaseMoneyProduct').addEventListener('click', () => {
+  if (moneyProductProduced === 100) {
+    console.log('max product')
+  } else {
+    moneyProductProduced += 2.5
+    moneyProductValue += 7350
+    updateBars()
+  }
+})
+
+document.querySelector('#sellMoney').addEventListener('click', () => {
+  moneyProductProduced = 0
+  moneyProductValue = 0
+  updateBars()
+})
+
+document.querySelector('#resupplyMoney').addEventListener('click', () => {
+  moneySupplyTimeLeft = 100
+  moneySupplyCost = 0
+  updateBars()
+})
+
+function updateBars() {
   document.querySelector('.cokeSupplyPercent').style.width = cocaineSupplyTimeLeft + '%'
   document.querySelector('#cocaineSupply').innerText = `Resupply cost: ${currency.format(cocaineSupplyCost)}`
   document.querySelector('.cokeProductPercent').style.width = cocaineProductProduced + '%'
   document.querySelector('#cocaineValue').innerText = `Sale value: ${currency.format(cocaineProductValue)}`
-  console.log('coke updated')
-  
-}
 
-function updateWeed() {
   document.querySelector('.weedSupplyPercent').style.width = weedSupplyTimeLeft + '%'
   document.querySelector('#weedSupply').innerText = `Resupply cost: ${currency.format(weedSupplyCost)}`
   document.querySelector('.weedProductPercent').style.width = weedProductProduced + '%'
   document.querySelector('#weedValue').innerText = `Sale value: ${currency.format(weedProductValue)}`
-  console.log('weed updated')
 
-}
-
-function updateMoney() {
   document.querySelector('.moneySupplyPercent').style.width = moneySupplyTimeLeft + '%'
   document.querySelector('#moneySupply').innerText = `Resupply cost: ${currency.format(moneySupplyCost)}`
   document.querySelector('.moneyProductPercent').style.width = moneyProductProduced + '%'
   document.querySelector('#moneyValue').innerText = `Sale value: ${currency.format(moneyProductValue)}`
-  console.log('money')
 }
+
 
 function isActive () {
   if (activeTimer === false) {
@@ -247,7 +302,7 @@ function cocaineProductTimer() {
     cocaineProductValue += 84000
   }
     cocainePercentage += 1
-    updateCoke()
+    updateBars()
     console.log('+1 minute product')
 }
 
@@ -267,8 +322,8 @@ function weedProductTimer() {
 }
     weedProductProduced += 1.25 
     weedProductValue += 3150
-    // weedPercentage += 1
-    updateWeed()
+
+    updateBars()
     console.log('+1 weed minute product')
 }
 
@@ -289,7 +344,7 @@ function moneyProductTimer() {
     moneyProductProduced += 2.5 
     moneyProductValue += 7350
     // moneyPercentage += 1
-    updateMoney()
+    updateBars()
     console.log('+1 money minute product')
 }
 
