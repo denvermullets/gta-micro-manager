@@ -20,18 +20,17 @@ let cocaineSupplyTimeLeft = 50
 let cocaineSupplyCost = 37500
 let cocaineProductProduced = 50
 let cocaineProductValue = 210000
-let cocainePercentage = 0
+let cocainePercentage = 0 // this is used because the timing of cocaine production / gui updating is not linear
 // weed init supply percentages / value
 let weedSupplyTimeLeft = 50
 let weedSupplyCost = 37500
 let weedProductProduced = 50
 let weedProductValue = 126000
 // money init supply percentages / value
-let moneySupplyTimeLeft = 100
-let moneySupplyCost = 0
-let moneyProductProduced = 0
-let moneyProductValue = 0
-let moneyPercentage = 0
+let moneySupplyTimeLeft = 50
+let moneySupplyCost = 37500
+let moneyProductProduced = 50
+let moneyProductValue = 147000
 
 document.addEventListener('DOMContentLoaded', function(event){
   updateBars()
@@ -343,7 +342,6 @@ function moneyProductTimer() {
 }
     moneyProductProduced += 2.5 
     moneyProductValue += 7350
-    // moneyPercentage += 1
     updateBars()
     console.log('+1 money minute product')
 }
