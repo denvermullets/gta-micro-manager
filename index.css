@@ -14,7 +14,8 @@
     color: white;
     background-color: #34c96b;
     height: 30px;
-    /* width: 70%; */
+    width: 0%;
+    /* width sets progress amount */
 }
 .progressCokeSupply .bar .ref {
     position: absolute;

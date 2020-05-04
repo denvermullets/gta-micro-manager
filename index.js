@@ -18,9 +18,9 @@ let moneyProduct
 
 // coke init supply percentages / value
 let cocaineSupplyTimeLeft = 50
-let cocaineSupplyCost = 0
+let cocaineSupplyCost = 37500
 let cocaineProductProduced = 50
-let cocaineProductValue = 0
+let cocaineProductValue = 210000
 let cocainePercentage = 0
 // weed init supply percentages / value
 let weedSupplyTimeLeft = 100
@@ -49,7 +49,7 @@ document.querySelector('#decreaseCokeProduct').addEventListener('click', functio
     console.log('no product left')
   } else {
     cocaineProductProduced -= 10
-    cocaineProductValue -= 4200
+    cocaineProductValue -= 42000
     updateCoke()
   }
 })
@@ -59,6 +59,7 @@ document.querySelector('#decreaseCokeSupply').addEventListener('click', function
     console.log('no product left')
   } else {
     cocaineSupplyTimeLeft -= 1
+    cocaineSupplyCost -= 750
     updateCoke()
   }
 })
@@ -71,6 +72,58 @@ document.querySelector('#increaseCokeSupply').addEventListener('click', function
     updateCoke()
   }
 })
+
+document.querySelector('#increaseCokeProduct').addEventListener('click', function(event){
+  if (cocaineProductProduced === 100) {
+    console.log('max product')
+  } else {
+    cocaineProductProduced += 10
+    cocaineProductValue += 42000
+    updateCoke()
+  }
+})
+
+
+document.querySelector('#decreaseWeedProduct').addEventListener('click', function(event){
+  if (weedProductProduced === 0) {
+    console.log('no product left')
+  } else {
+    weedProductProduced -= 1.25 
+    weedProductValue -= 3150
+    updateWeed()
+  }
+})
+
+document.querySelector('#decreaseWeedSupply').addEventListener('click', function(event){
+  if (weedSupplyTimeLeft === 0) {
+    console.log('no product left')
+  } else {
+    weedSupplyTimeLeft -= 1
+    weedSupplyCost -= 750
+    updateWeed()
+  }
+})
+
+document.querySelector('#increaseWeedSupply').addEventListener('click', function(event){
+  if (weedSupplyTimeLeft === 100) {
+    console.log('max supply')
+  } else {
+    
+
+    updateWeed()
+  }
+})
+
+document.querySelector('#increaseWeedProduct').addEventListener('click', function(event){
+  if (weedProductProduced === 100) {
+    console.log('max product')
+  } else {
+    weedProductProduced += 1.25 
+    weedProductValue += 3150
+    updateWeed()
+  }
+})
+
 
 resupplyCokeBtn.addEventListener('click', function(event) { 
   cocaineSupplyTimeLeft = 100
