@@ -59,7 +59,7 @@ document.querySelector('#decreaseCokeSupply').addEventListener('click', function
     console.log('no product left')
   } else {
     cocaineSupplyTimeLeft -= 1
-    cocaineSupplyCost -= 750
+    cocaineSupplyCost += 750
     updateCoke()
   }
 })
@@ -69,6 +69,7 @@ document.querySelector('#increaseCokeSupply').addEventListener('click', function
     console.log('max supply')
   } else {
     cocaineSupplyTimeLeft += 1
+    cocaineSupplyCost -= 750
     updateCoke()
   }
 })
