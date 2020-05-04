@@ -1,5 +1,11 @@
 # gta-micro-manager
 
+### Todo:
+- verify single sale mark
+- add options for MC's that don't have full upgrades
+- add bunker runs
+- add button to pause or disable business that aren't owned
+
 ### misc notes i used while building
 
 - // https://www.reddit.com/r/gtaonline/comments/5mhp1c/mc_business_supply_usage_and_production_after/
